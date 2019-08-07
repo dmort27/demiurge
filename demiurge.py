@@ -20,7 +20,6 @@ def extract_meeting_days(meeting_days_string):
             meeting_days.add("MTWRFSU".index(c))
         except ValueError:
           print(f'Invalid day of the week {c}', file=sys.stderr)
-          sys.exit()
     return meeting_days
 
 
