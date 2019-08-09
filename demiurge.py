@@ -3,6 +3,8 @@
 import sys
 import argparse
 import datetime
+import csv
+import io
 
 
 def iso_to_datetime(iso):
@@ -49,7 +51,12 @@ def read_topics(dates):
     return topics
 
 def format_csv(table):
-    return '\n'.join([','.join(row) for row in table])
+    output = io.StringIO()
+    writer = csv.writer(output, dialect='excel')
+    for row in table:
+        writer.writerow(row)
+    return output.getvalue()
+
 
 def format_tex(table):
     table = list(table)
@@ -91,7 +98,7 @@ def main():
     parser.add_argument('-e', '--end-date', required=True, help='End date')
     parser.add_argument('-d', '--meeting-days', required=True, help='Days class will meet (e.g. "MWF" or "TR")')
     parser.add_argument('-x', '--holidays', default='', help='File listing special days classes will not meet')
-    parser.add_argument('-a', '--date-format', default='%d %b', help='Format for the date')
+    parser.add_argument('-a', '--date-format', default='%b %d', help='Format for the date')
     parser.add_argument('-f', '--format', default='csv', help='Output format (csv, tex, html)')
     parser.add_argument('-c', '--columns', type=int, default=0, help='Number of extra columns to add')
     args = parser.parse_args()
