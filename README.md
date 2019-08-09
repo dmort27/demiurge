@@ -12,7 +12,7 @@ $ python demiurge.py -s 2019-08-26 -e 2019-12-06 -d MW -c 1 -x holidays.txt -f c
 
 The “topics” file that the script takes as input (this cannot be omitted, but the file can be empty) contains a list—one per line—of lecture titles or class topics. These are aligned with the available dates. In output, the sequence of dates is never truncated but the sequence of topics will be truncated if there are not enough dates for all of them.
 
-A complete list of options can be obtained by entering `python demiurge.py -h`:
+A complete list of options for `demiurge` can be obtained by entering `python demiurge.py -h`:
 
 ```
 Generate a syllabus from basic parameters
@@ -51,3 +51,7 @@ All dates must be entered in ISO formaat (YYY-MM-DD). The recognized days of the
 The “holidays” file must consist of a sequence of ISO dates, one per line.
 
 In output, dates are formated using `strftime`. The `--format` option acceepts any format possible for `strftime`. For more information, see [the documentation](https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior).
+
+## The name
+
+In some Neoplatonic and Gnostic systems, the Demiurge is the misguided creator.
